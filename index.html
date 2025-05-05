@@ -39,10 +39,10 @@
                 url(https://use.typekit.net/af/da0c19/00000000000000000001518d/27/d?subset_id=2&fvd=n4&v=3) format("woff"),
                 url(https://use.typekit.net/af/da0c19/00000000000000000001518d/27/a?subset_id=2&fvd=n4&v=3) format("opentype");
             font-weight: 400;
-            font-style: normal;
+            font-style: normal; 
             font-stretch: normal;
             font-display: auto;
-        }
+        } 
 
         @font-face {
             font-family: nimbus-sans;
@@ -95,37 +95,10 @@
         }
 
         :root {
-            --white-alpha-70: #ffffffb3;
-            --white: white;
-            --siteblack: #191923;
-            --grey-30: #818187;
-            --cornflower-blue: #65afff;
-            --turqoise: #36f1cd;
-            --gray20: #b7b9b6;
-            --white-alpha-10: #ffffff1a;
-            --black-10: #2d2d37;
-            --black20: #42424b;
-            --blackalpha10: #0000001a;
-            --grey-10: #e5e7e3;
-            --white-alpha-50: #ffffff80;
-            --white-alpha-30: #ffffff4d;
-            --white-alpha-20: #fff3;
-            --21_black: #191919;
-            --burnt-sienna: #c45131;
-            --forest: #a6a670;
-            --royal-blue: #3066be;
-            --darker-turqoise: #32dcbb;
-            --transparent-white: #fff0;
-            --worktiledropshadowwhite: #0000003d;
-            --white-5: #ffffff0d;
-            --black-alpha-50: #00000080;
-            --black-alpha-30: #0000004d;
-            --black-alpha-20: #0003;
-            --sand: #baafa1;
-
-            --w-sidebar: 80px; 
+            --w-sidebar: 80px;
         }
-        html{
+
+        html {
             scroll-behavior: smooth;
         }
 
@@ -172,22 +145,36 @@
 text-base leading-relaxed nimbus
 bg-[#191919] w-full min-h-screen text-white/50  p-10  
 ">
-    <!-- <div id="loader" class="fixed inset-0 flex items-center justify-center z-[50] bg-[#191919]">
+    <div id="loader" class="fixed inset-0 flex items-center justify-center z-[50] bg-[#191919]">
         <img src="assets/logo.png" class="w-80 fade-loop" alt="Loading...">
-    </div> -->
+    </div>
+    <div id="resumeModal" class="
+    transition-all duration-500   
+    scale-0 invisible [&.active]:scale-100 [&.active]:visible
+    fixed inset-0 z-[50] flex items-center justify-center bg-black/50 backdrop-blur-lg">
+        <div class="relative w-[80%] lg:w-[60%] h-[90%] bg-white rounded-lg shadow-2xl overflow-hidden">
+            <iframe id="pdfFrame" src="https://drive.google.com/file/d/1X3si1Y3VUOHavhrSm_O_XTxjRf5cfvdd/preview"
+                class="w-full h-full border-0"></iframe>
+        </div>
+        <button id="btnCloseModal" aria-label="Close"
+            class="absolute top-2 right-2 text-lg    text-white/30 rounded-full px-4  hover:text-white bg-white/10  transition-colors">
+            Close
+        </button>
+    </div>
+
     <aside class="hidden lg:flex lg:fixed left-0 top-0 w-[var(--w-sidebar)] min-h-screen  ">
         <ul class="list-social flex flex-col gap-4 items-center m-auto mb-10   
             [&_li]:p-1  [&_li]:rounded-xl [&_li]:bg-white/10 hover:[&_li]:bg-white/20   [&_img]:w-12">
-            <li><a href="#codemax" ><img src="assets/codemax.png" alt=""></a></li>
+            <li><a href="#codemax"><img src="assets/codemax.png" alt=""></a></li>
             <li><a href="#starfish"><img src="assets/starfish.png" alt=""></a></li>
             <li><a href="#codinggpt"><img src="assets/codinggpt.png" alt=""></a></li>
             <li><a href="#dxc"><img src="assets/dxc.png" alt=""></a></li>
             <li><a href="#dailycoding"><img src="assets/plus.png" alt=""></a></li>
-            <li><a href="#"><img src="assets/email.png" alt=""></a></li>
+            <li><a href="mailto:maxvo.dev@gmail.com"><img src="assets/email.png" alt=""></a></li>
         </ul>
     </aside>
     <aside
-        class="lg:fixed lg:w-[calc((100%-100px)*0.4)]   right-0 top-0 lg:p-10 lg:min-h-screen space-y-4 flex flex-col justify-center ">
+        class="lg:fixed lg:w-[calc((100%-100px)*0.4)]   right-0 top-0 lg:p-2  lg:min-h-screen space-y-4 flex flex-col justify-center ">
         <img src="assets/logo.png" alt="NAME" class="w-60  object-cover mx-auto ">
         <input class="sr-only peer/design" type="radio" name="tab" id="design" checked>
         <input class="sr-only peer/projects" type="radio" name="tab" id="projects">
@@ -198,9 +185,9 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
         ">
             <label class="label-design" for="design">
                 <img src="assets/about.svg" class="w-8" alt="Design">
-                <span>Design</span>
+                <span>About</span> 
             </label>
-            <label class="label-projects" for="projects">
+            <label class="label-projects !hidden" for="projects">
                 <img src="assets/stack.svg" class="w-8" alt="Project">
                 <span>Project</span>
             </label>
@@ -214,209 +201,79 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
                 <p class="text-lg" data-bind="aboutme">
                 </p>
                 <ul class="list-social flex flex-row gap-4
-                [&_li]:p-4   [&_li]:rounded-2xl   [&_li]:bg-white/10 hover:[&_li]:bg-white/20   [&_img]:w-8  ">
-                    <li><a href="#"><img src="assets/linkedin.svg" alt=""></a></li>
-                    <li><a href="#"> <img src="assets/resume.svg" alt=""> </a></li>
-                    <li><a href="#"> <img src="assets/contact.svg" alt=""> </a></li>
+                [&_a]:block [&_a]:p-4    [&_li]:rounded-2xl   [&_li]:bg-white/10 hover:[&_li]:bg-white/20   [&_img]:w-8  ">
+                    <li><a href="https://www.linkedin.com/in/max-vo/" target="_blank"><img src="assets/linkedin.svg"
+                                alt="Linkedin"></a></li>
+                                <li><a href="https://github.com/mvocoding" target="_blank"><img src="assets/github.svg"
+                                    alt="Github"></a></li>  
+                    <li><a href="#" id="btnOpenModal"> <img src="assets/resume.svg" alt="Resume"> </a></li>
+                    <li><a href="mailto:maxvo.dev@gmail.com"> <img src="assets/contact.svg" alt="Contact"> </a></li> 
                 </ul>
             </div>
-            <div class="projects">
+            <div class="projects !hidden">
                 <p class="text-lg" data-bind="stack">
-                </p>
-                <ul class="list-social flex flex-row gap-4
+                </p> 
+                <ul id="stackList" class="list-social flex flex-row gap-4
                 [&_li]:p-1  [&_li]:rounded-xl [&_li]:bg-white/10 hover:[&_li]:bg-white/20   [&_img]:w-12">
-                    <li><a href="#"><img src="assets/html.svg" alt=""></a></li>
-                    <li><a href="#"><img src="assets/css.svg" alt=""></a></li>
-                    <li><a href="#"><img src="assets/js.svg" alt=""></a></li>
-                    <li><a href="#"><img src="assets/react.svg" alt=""></a></li>
-                    <li><a href="#"><img src="assets/csharp.svg" alt=""></a></li>
-                    <li><a href="#"><img src="assets/python.svg" alt=""></a></li>
+
                 </ul>
             </div>
         </div>
     </aside>
     <main class="max-lg:mt-14  lg:ml-[var(--w-sidebar)] lg:w-[calc((100%-100px)*0.6)]   py-8  
-    [&_.highlight]:font-[interstate] [&_.highlight]:text-white [&_.highlight]:font-bold  [&_h2]:text-xl   space-y-14  
+    [&_.highlight]:font-[interstate] [&_.highlight]:text-white [&_.highlight]:font-bold  [&_h2]:text-3xl    space-y-14  
     ">
         <ul class="*:overflow-hidden   
         flex flex-col gap-14 
-        text-lg  
-        *:bg-white/10   *:flex *:gap-4  *:items-center *:rounded-3xl *:p-5  [&_li_*]:flex-1 [&_.description]:space-y-4 
+        text-xl   
+        *:bg-white/10   *:flex max-sm:*:flex-col *:gap-4  *:items-center *:rounded-3xl *:p-5  [&_li_*]:flex-1 [&_.description]:space-y-4 
         [&_button]:flex [&_button]:ml-auto 
 
-        *:h-[350px]  [&_.media]:flex [&_.media]:justify-center  [&_video]:h-[400px]                                      
+        sm:*:h-[450px]    [&_.media]:flex [&_.media]:justify-center 
         
         [&_button]:px-4 [&_button]:py-1 [&_button]:rounded-full [&_button]:bg-white/10 hover:[&_button]:bg-white/20 
         " id="project-wrapper">
         </ul>
+
+
         <div id="dailycoding"
             class="liveproject wrapper space-y-5 rounded-xl bg-white/10 p-5 ring-8 ring-black/5 border border-zinc-700/30 ">
             <h2 class="highlight">Daily Coding </h2>
         </div>
-        <template id="tplliveproject">
-            <div
-                class="liveproject-wrapper overflow-auto grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))]   [grid-auto-rows:1fr] gap-3">
-            </div>
-
-            <div class="liveproject-item">
-                <section class=" aspect-video relative overflow-hidden"><img src=""
-                        class="image w-full h-full object-cover hover:scale-150 transition-all duration-[10s]"><button
-                        type="button"
-                        class="view-btn rounded-full bg-[#4B8EB0]/80  px-2 py-1   absolute bottom-0 right-0 text-xs text-white transition-all duration-300 hover:bg-black/50 ">Tap
-                        to view</button></section>
-                <section class="bg-[#1F242E] p-2 space-y-2"><button class="title highlight  font-semibold ">---</button>
-            </div>
-        </template>
-        <template id="projectItemTpl">
-            <li>
-                <div class="media">
-                </div>
-                <div class="description">
-                <img data-logo src="" class="w-32 max-h-[40px] object-cover " alt="Project LOGO">
-                    <h2 class="highlight" data-title>---
-                    </h2>
-                    <p data-desc>---
-                    </p>
-                    <button class="highlight" data-btn>---</button>
-                </div>
-            </li>
-        </template>
     </main>
+
+    <template id="tplliveproject">
+        <div
+            class="liveproject-wrapper overflow-auto grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))]   [grid-auto-rows:1fr] gap-3">
+        </div>
+
+        <div class="liveproject-item">
+            <section class=" aspect-video relative overflow-hidden"><img src=""
+                    class="image w-full h-full object-cover hover:scale-150 transition-all duration-[10s]"><button
+                    type="button"
+                    class="view-btn rounded-full bg-[#4B8EB0]/80  px-2 py-1   absolute bottom-0 right-0 text-xs text-white transition-all duration-300 hover:bg-black/50 ">Tap
+                    to view</button></section>
+            <section class="bg-[#1F242E] p-2 space-y-2"><button class="title highlight  font-semibold ">---</button>
+        </div>
+    </template>
+    <template id="projectItemTpl">
+        <li>
+            <div class="media">
+            </div>
+            <div class="description">
+                <h2 class="highlight" data-title>---
+                </h2>
+                <p data-desc>---
+                </p>
+                <button class="highlight" data-btn>---</button>
+            </div>
+        </li>
+    </template>
+
+    <template id="stackItemTpl">
+        <li><a href="#"><img data-img src="" alt="---"></a></li>
+    </template>
+
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const $ = selector => document.getElementById(selector);
-        const $$ = selector => document.querySelectorAll(selector);
-
-        const DATA = {
-            aboutme: `Designing since 2016. I’m a Senior Product Designer living in New York City. I have a
-                    background
-                    in graphic design and in my spare time I risograph print and make mixed drinks. Let’s get in touch.`,
-            stack: `Designing since 2016. I’m a Senior Product Designer living in New York City. I have a
-                    background
-                    in graphic design and in my spare time I risograph print and make mixed drinks. Let’s get in touch.`,
-            projects: [
-                {
-                    id: 'codemax',
-                    type: 'video',
-                    src: 'assets/codemax.mp4',
-                    logo: 'assets/codemax-h.png',
-                    title: 'Enhancing Developer Learning',
-                    desc: `Designing for Entertainment experiences for Facebook Live, in International markets, and growing
-                        the product in new and exciting places.`,
-                    btnText: 'Go to video',
-                    btnLink: 'https://www.svgrepo.com/svg/452362/stack?edit=true'
-                },
-                {
-                    id: 'starfish',
-                    type: 'image',
-                    src: 'assets/starfish-project.png',
-                    logo: 'assets/starfish-h.png',
-                    title: 'Transforming Public Safety Reporting',
-                    desc: `Designed and delivered a mobile-friendly, multi-tenant crime reporting platform with support for anonymous submissions, media uploads, and audit logging—enhancing transparency, accessibility, and performance.`,
-                },
-
-                {
-                    id: 'codinggpt',
-                    type: 'video',
-                    src: 'assets/codinggpt.mp4',
-                    logo: 'assets/codinggpt-h.png',
-                    title: 'Enhancing Developer Learning',
-                    desc: `Designing for Entertainment experiences for Facebook Live, in International markets, and growing
-                        the product in new and exciting places.`,
-                    btnText: 'Go to video',
-                    btnLink: 'https://www.svgrepo.com/svg/452362/stack?edit=true'
-                },
-                
-                {
-                    id: 'dxc',
-                    type: 'image',
-                    src: 'assets/dxc-nursing.png',
-                    logo: 'assets/dxc-h.png',
-                    title: 'Modernizing Resident Care Systems',
-                    desc: `Designed a digital care system for nursing homes, enabling real-time health tracking, streamlined medication schedules, and faster coordination between nurses and doctors.`,
-                }
-            ]
-        }
-
-        $$('[data-bind]').forEach(el => {
-            const key = el.getAttribute('data-bind');
-            el.textContent = DATA[key] || '';
-        });
-
-        const MAX_ITEM = 6;
-        const tplliveproject = document.querySelector('#tplliveproject');
-        const liveprojectWrapper = tplliveproject.content.querySelector('.liveproject-wrapper');
-        const liveprojectItem = tplliveproject.content.querySelector('.liveproject-item');
-        const liveprojectEl = document.querySelector('.liveproject');
-
-        const clonedLiveprojectWrapper = liveprojectWrapper.cloneNode(true);
-        fetch('https://corsproxy.io/?https://icodethis.com/api/trpc/user.getUserSubmissions,user.getUserBadges?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22username%22%3A%22maxvo_dev%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22username%22%3A%22maxvo_dev%22%7D%7D%7D')
-            .then(resp => resp.json())
-            .then(resp => {
-                let LIVEPROJECTS = [];
-                if (resp.length)
-                    LIVEPROJECTS = resp[0].result.data.json.modes_submission.slice(0, MAX_ITEM);
-
-                LIVEPROJECTS.forEach((project, index) => {
-                    const clonedItem = liveprojectItem.cloneNode(true);
-                    const btn = clonedItem.querySelector('.view-btn');
-
-                    btn.addEventListener('click', () => {
-                        window.open(`https://icodethis.com${project.href}`, '_blank');
-                    });
-
-                    clonedItem.querySelector('.title').textContent = project.title;
-                    clonedItem.querySelector('.image').setAttribute('src', `https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/previews/${project.img_url}`);
-
-                    clonedLiveprojectWrapper.appendChild(clonedItem);
-                    liveprojectEl.appendChild(clonedLiveprojectWrapper);
-
-                })
-            });
-
-        const projectWrapperEl = $('project-wrapper');
-        const projectItemTpl = $('projectItemTpl');
-
-        DATA.projects.forEach((item, index) => {
-            const projectItemEl = projectItemTpl.content.cloneNode(true);
-            projectItemEl.firstElementChild.setAttribute('id', item.id);
-            if (index === 0)
-                projectItemEl.firstElementChild.classList.add('bg-highlight');
-            projectItemEl.querySelector('[data-title]').textContent = item.title;
-            projectItemEl.querySelector('[data-desc]').textContent = item.desc;
-            if(item.btnText){
-                projectItemEl.querySelector('[data-btn]').textContent = item.btnText;
-                projectItemEl.querySelector('[data-btn]').setAttribute('src', item.btnLink);
-            }
-            else{
-                projectItemEl.querySelector('[data-btn]').classList.add('!hidden');
-            }
-            projectItemEl.querySelector('[data-logo]').setAttribute('src', item.logo);
-
-            const mediaEl = projectItemEl.querySelector('.media');
-            if (item.type === 'video') {
-                const video = document.createElement('video');
-                video.muted = true;
-                video.loop = true;
-                video.autoplay = true;
-                video.src = item.src;
-                video.playsInline = true;
-                mediaEl.appendChild(video);
-            }
-            else {
-                const image = document.createElement('img');
-                image.src = item.src;
-                mediaEl.appendChild(image);
-            }
-            projectWrapperEl.appendChild(projectItemEl);
-        });
-
-        const $loader = $('loader');
-        setTimeout(() => {
-            loader.classList.add('hidden');
-        }, 3000);
-    })
-</script>
-
+<script src="script.js"></script>
 </html>
