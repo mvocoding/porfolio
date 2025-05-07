@@ -1,7 +1,5 @@
 const $ = (id) => document.getElementById(id);
 const $$ = (selector) => document.querySelectorAll(selector);
-const CORSPROXY = 'https://proxy.cors.sh/';
-const MAX_ITEMS = 12;
 
 const DATA = {
     email: 'maxvo.dev@gmail.com',
@@ -47,6 +45,7 @@ const DATA = {
         }
     ]
 };
+
 
 // Function to bind static text to elements with a `data-bind` attribute
 const bindStaticText = () => {
@@ -118,41 +117,25 @@ const renderLiveProjects = async () => {
     const wrapperTemplate = document.querySelector('#tplliveproject');
     const wrapper = wrapperTemplate.content.querySelector('.liveproject-wrapper').cloneNode(true);
     const itemTemplate = wrapperTemplate.content.querySelector('.liveproject-item');
-
+  
     try {
-      const username = 'maxvo_dev';
-      const input = { '0': { json: { username } } };
-      let encodedInput = encodeURIComponent(JSON.stringify(input));
-      let url = `${CORSPROXY}https://icodethis.com/api/trpc/user.getUserSubmissions,user.getUserBadges?batch=1&input=${encodedInput}`;
-
-      const fetchSubmission = await fetch(url);
-      const data = await fetchSubmission.json();
-      const projects = data?.[0]?.result?.data?.json?.modes_submission?.slice(0, MAX_ITEMS) || [];
-
-      await Promise.all(projects.map(async (project) => {
-        const { href, id, title, img_url, mode: { id: projectID } } = project;
+      const response = await fetch('https://mcorsproxy.netlify.app/.netlify/functions/api/live-projects'); 
+      const projects = await response.json();
+  
+      projects.forEach((project) => {
+        const { href, title, imgSrc } = project;
         const item = itemTemplate.cloneNode(true);
         const titleEl = item.querySelector('.title');
         const imgEl = item.querySelector('.image');
         const btn = item.querySelector('.view-btn');
-
-        const input = { '0': { json: { id: projectID } } };
-        encodedInput = encodeURIComponent(JSON.stringify(input));
-        url = `${CORSPROXY}https://icodethis.com/api/trpc/designToCode.getChallenge,designToCode.getSubmissionByChallengeId?batch=1&input=${encodedInput}`;
-
-        const fetchChallenge = await fetch(url);
-        const challengeData = await fetchChallenge.json();
-        const challengeImg = challengeData[0].result.data.json.meta.image;
-        const defaultImg = `https://icodethis.com/images/projects/${challengeImg}`;
-        const imgSrc = img_url ? `https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/previews/${img_url}` : defaultImg;
-
+  
         titleEl.textContent = title;
         imgEl.src = imgSrc;
         btn.addEventListener('click', () => window.open(`https://icodethis.com${href}`, '_blank'));
-
+  
         wrapper.appendChild(item);
-      }));
-
+      });
+  
       container.appendChild(wrapper);
     } catch (error) {
       console.error('Failed to fetch live projects:', error);
