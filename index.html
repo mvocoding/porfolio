@@ -143,8 +143,8 @@
 </head>
 
 <body class="
-text-lg md:text-base   leading-relaxed nimbus
-bg-[#191919] w-full min-h-screen text-white/50  p-10  
+text-lg  md:text-base leading-relaxed nimbus
+bg-[#191919] w-full min-h-screen text-white/50  p-4 md:p-10  
 ">
     <!-- <div id="loader" class="fixed inset-0 flex items-center justify-center z-[50] bg-[#191919]">
         <img src="assets/logo.png" class="w-80 fade-loop" alt="Loading...">
@@ -166,12 +166,12 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
     <aside class="hidden lg:flex lg:fixed left-0 top-0 w-[var(--w-sidebar)] min-h-screen  ">
         <ul class="list-social flex flex-col gap-4 items-center m-auto mb-10   
             [&_li]:p-1  [&_li]:rounded-xl [&_li]:bg-white/10 hover:[&_li]:bg-white/20   [&_img]:w-12">
-            <li><a href="#codemax"><img src="assets/codemax.png" alt=""></a></li>
-            <li><a href="#starfish"><img src="assets/starfish.png" alt=""></a></li>
-            <li><a href="#codinggpt"><img src="assets/codinggpt.png" alt=""></a></li>
-            <li><a href="#dxc"><img src="assets/dxc.png" alt=""></a></li>
-            <li><a href="#dailycoding"><img src="assets/plus.png" alt=""></a></li>
-            <li><a href="mailto:maxvo.dev@gmail.com"><img src="assets/email.png" alt=""></a></li>
+            <li><a href="#codemax"><img src="assets/codemax.png" alt="CODEMAX"></a></li>
+            <li><a href="#starfish"><img src="assets/starfish.png" alt="STARFISH"></a></li>
+            <li><a href="#codinggpt"><img src="assets/codinggpt.png" alt="CODINGGPT"></a></li>
+            <li><a href="#dxc"><img src="assets/dxc.png" alt="DXC"></a></li>
+            <li><a href="#dailycoding"><img src="assets/plus.png" alt="DAILYCODING"></a></li>
+            <li><a href="mailto:maxvo.dev@gmail.com"><img src="assets/email.png" alt="EMAIL"></a></li>
         </ul>
     </aside>
     <aside
@@ -199,10 +199,10 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
         peer-checked/design:[&_.design]:-translate-y-0
         peer-checked/projects:[&_.projects]:-translate-y-0   ">
             <div class="design">
-                <p class="!text-lg" data-bind="aboutme">
+                <p class="text-lg" data-bind="aboutme">
                 </p>
                 <ul
-                    class="list-social flex flex-row gap-4
+                    class="list-social flex flex-row gap-4 max-sm:justify-center 
                 [&_a]:block [&_a]:p-4    [&_li]:rounded-2xl   [&_li]:bg-white/10 hover:[&_li]:bg-white/20   [&_img]:w-8  ">
                     <li><a href="https://www.linkedin.com/in/max-vo/" target="_blank"><img src="assets/linkedin.svg"
                                 alt="Linkedin"></a></li>
@@ -228,7 +228,7 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
         <ul class="*:overflow-hidden   
         flex flex-col gap-14 
         text-xl   
-        *:bg-white/10   *:flex max-md:*:flex-col  *:gap-4  *:items-center *:rounded-3xl *:p-5  [&_li_*]:flex-1 [&_.description]:space-y-4 
+        *:bg-white/10   *:flex max-sm:*:flex-col *:gap-4  *:items-center *:rounded-3xl *:p-5  [&_li_*]:flex-1 [&_.description]:space-y-4 
         [&_button]:flex [&_button]:ml-auto 
 
         sm:*:h-[450px]    [&_.media]:flex [&_.media]:justify-center 
@@ -253,7 +253,7 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
             <section class=" aspect-video relative overflow-hidden"><img src=""
                     class="image w-full h-full object-cover hover:scale-150 transition-all duration-[10s]"><button
                     type="button"
-                    class="view-btn rounded-full bg-[#4B8EB0]/80  px-2 py-1   absolute bottom-0 right-0 text-xs text-white transition-all duration-300 hover:bg-black/50 ">Tap
+                    class="view-btn rounded-full bg-[#4B8EB0]/80  px-2 py-1   absolute bottom-0 right-0 text-base md:text-xs text-white transition-all duration-300 hover:bg-black/50 ">Tap
                     to view</button></section>
             <section class="bg-[#1F242E] p-2 space-y-2"><button class="title highlight  font-semibold ">---</button>
         </div>
