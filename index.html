@@ -39,10 +39,10 @@
                 url(https://use.typekit.net/af/da0c19/00000000000000000001518d/27/d?subset_id=2&fvd=n4&v=3) format("woff"),
                 url(https://use.typekit.net/af/da0c19/00000000000000000001518d/27/a?subset_id=2&fvd=n4&v=3) format("opentype");
             font-weight: 400;
-            font-style: normal; 
+            font-style: normal;
             font-stretch: normal;
             font-display: auto;
-        } 
+        }
 
         @font-face {
             font-family: nimbus-sans;
@@ -142,12 +142,12 @@
 </head>
 
 <body class="
-text-base leading-relaxed nimbus
+text-base  leading-relaxed nimbus
 bg-[#191919] w-full min-h-screen text-white/50  p-10  
 ">
-    <div id="loader" class="fixed inset-0 flex items-center justify-center z-[50] bg-[#191919]">
+    <!-- <div id="loader" class="fixed inset-0 flex items-center justify-center z-[50] bg-[#191919]">
         <img src="assets/logo.png" class="w-80 fade-loop" alt="Loading...">
-    </div>
+    </div> -->
     <div id="resumeModal" class="
     transition-all duration-500   
     scale-0 invisible [&.active]:scale-100 [&.active]:visible
@@ -185,7 +185,7 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
         ">
             <label class="label-design" for="design">
                 <img src="assets/about.svg" class="w-8" alt="Design">
-                <span>About</span> 
+                <span>About</span>
             </label>
             <label class="label-projects !hidden" for="projects">
                 <img src="assets/stack.svg" class="w-8" alt="Project">
@@ -198,21 +198,22 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
         peer-checked/design:[&_.design]:-translate-y-0
         peer-checked/projects:[&_.projects]:-translate-y-0   ">
             <div class="design">
-                <p class="text-lg" data-bind="aboutme">
+                <p class="text-2xl md:text-lg" data-bind="aboutme">
                 </p>
-                <ul class="list-social flex flex-row gap-4
+                <ul
+                    class="list-social flex flex-row gap-4
                 [&_a]:block [&_a]:p-4    [&_li]:rounded-2xl   [&_li]:bg-white/10 hover:[&_li]:bg-white/20   [&_img]:w-8  ">
                     <li><a href="https://www.linkedin.com/in/max-vo/" target="_blank"><img src="assets/linkedin.svg"
                                 alt="Linkedin"></a></li>
-                                <li><a href="https://github.com/mvocoding" target="_blank"><img src="assets/github.svg"
-                                    alt="Github"></a></li>  
+                    <li><a href="https://github.com/mvocoding" target="_blank"><img src="assets/github.svg"
+                                alt="Github"></a></li>
                     <li><a href="#" id="btnOpenModal"> <img src="assets/resume.svg" alt="Resume"> </a></li>
-                    <li><a href="mailto:maxvo.dev@gmail.com"> <img src="assets/contact.svg" alt="Contact"> </a></li> 
+                    <li><a href="mailto:maxvo.dev@gmail.com"> <img src="assets/contact.svg" alt="Contact"> </a></li>
                 </ul>
             </div>
             <div class="projects !hidden">
                 <p class="text-lg" data-bind="stack">
-                </p> 
+                </p>
                 <ul id="stackList" class="list-social flex flex-row gap-4
                 [&_li]:p-1  [&_li]:rounded-xl [&_li]:bg-white/10 hover:[&_li]:bg-white/20   [&_img]:w-12">
 
@@ -226,7 +227,7 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
         <ul class="*:overflow-hidden   
         flex flex-col gap-14 
         text-xl   
-        *:bg-white/10   *:flex max-sm:*:flex-col *:gap-4  *:items-center *:rounded-3xl *:p-5  [&_li_*]:flex-1 [&_.description]:space-y-4 
+        *:bg-white/10   *:flex max-md:*:flex-col  *:gap-4  *:items-center *:rounded-3xl *:p-5  [&_li_*]:flex-1 [&_.description]:space-y-4 
         [&_button]:flex [&_button]:ml-auto 
 
         sm:*:h-[450px]    [&_.media]:flex [&_.media]:justify-center 
@@ -276,4 +277,5 @@ bg-[#191919] w-full min-h-screen text-white/50  p-10
 
 </body>
 <script src="app.js"></script>
+
 </html>
