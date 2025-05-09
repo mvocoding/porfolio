@@ -13,7 +13,7 @@ const DATA = {
             src: 'assets/codemax.mp4',
             logo: 'assets/codemax-h.png',
             title: 'Coding Made Easy',
-            desc: `Codemax is a platform I designed to support developers through interactive learning, hands-on challenges, and a focus on real-world skills—making growth accessible and engaging`,
+            desc: `Built CodeMax, a platform that makes coding easier by offering hands-on challenges to help developers improve their skills`,
             btnText: 'Explore Codemax',
             btnLink: 'https://codemax.dev/'
         },
