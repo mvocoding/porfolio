@@ -16,7 +16,7 @@ const DATA = {
             desc: `Codemax is a platform I designed to support developers through interactive learning, hands-on challenges, and a focus on real-world skills—making growth accessible and engaging`,
             btnText: 'Explore Codemax',
             btnLink: 'https://codemax.dev/'
-        },            
+        },
         {
             id: 'starfish',
             type: 'image',
@@ -31,10 +31,9 @@ const DATA = {
             src: 'assets/codinggpt.mp4',
             logo: 'assets/codinggpt-h.png',
             title: 'Bringing Code to Life',
-            desc: `CodingGPT is my Tiktok channel where I share short-form videos on CSS animations, front-end effects, and web UI experiments—making web design fun, visual, and inspiring`,
-            btnText: 'Watch on TikTok',
-            btnLink: 'https://www.tiktok.com/@codinggpt' 
-        },            
+            desc: `CodingGPT is my TikTok channel where I share short-form videos on CSS animations, front-end effects, and web UI experiments, inspired by real cartoon or anime characters`,
+            btnLink: 'https://www.tiktok.com/@codinggpt'
+        },
         {
             id: 'dxc',
             type: 'image',
@@ -117,30 +116,30 @@ const renderLiveProjects = async () => {
     const wrapperTemplate = document.querySelector('#tplliveproject');
     const wrapper = wrapperTemplate.content.querySelector('.liveproject-wrapper').cloneNode(true);
     const itemTemplate = wrapperTemplate.content.querySelector('.liveproject-item');
-  
+
     try {
-      const response = await fetch('https://mcorsproxy.netlify.app/.netlify/functions/api/live-projects'); 
-      const projects = await response.json();
-  
-      projects.forEach((project) => {
-        const { href, title, imgSrc } = project;
-        const item = itemTemplate.cloneNode(true);
-        const titleEl = item.querySelector('.title');
-        const imgEl = item.querySelector('.image');
-        const btn = item.querySelector('.view-btn');
-  
-        titleEl.textContent = title;
-        imgEl.src = imgSrc;
-        btn.addEventListener('click', () => window.open(`https://icodethis.com${href}`, '_blank'));
-  
-        wrapper.appendChild(item);
-      });
-  
-      container.appendChild(wrapper);
+        const response = await fetch('https://mcorsproxy.netlify.app/.netlify/functions/api/live-projects');
+        const projects = await response.json();
+
+        projects.forEach((project) => {
+            const { href, title, imgSrc } = project;
+            const item = itemTemplate.cloneNode(true);
+            const titleEl = item.querySelector('.title');
+            const imgEl = item.querySelector('.image');
+            const btn = item.querySelector('.view-btn');
+
+            titleEl.textContent = title;
+            imgEl.src = imgSrc;
+            btn.addEventListener('click', () => window.open(`https://icodethis.com${href}`, '_blank'));
+
+            wrapper.appendChild(item);
+        });
+
+        container.appendChild(wrapper);
     } catch (error) {
-      console.error('Failed to fetch live projects:', error);
+        console.error('Failed to fetch live projects:', error);
     }
-  };
+};
 
 // Function to open/close modal
 const setupModalEvents = () => {
@@ -161,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export for Jest (Node)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
-      bindStaticText,
-      renderPortfolioProjects,
-      hideLoaderAfterDelay,
-      
+        bindStaticText,
+        renderPortfolioProjects,
+        hideLoaderAfterDelay,
+
     };
-  }
+}
